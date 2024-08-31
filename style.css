@@ -1,0 +1,29 @@
+/* Resets */
+body {
+    margin: unset;
+}
+
+img {
+    vertical-align: top;
+}
+
+/* Design */
+.article {
+    display: flex;
+}
+
+.article-cover {
+    width: 50vw;
+    height: 100vh;
+    aspect-ratio: 1280 / 1920;
+}
+
+.article-cover-src {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-contents {
+    background-color: blanchedalmond;
+}
