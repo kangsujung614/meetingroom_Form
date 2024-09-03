@@ -29,7 +29,7 @@ select, input[type="text"], textarea {
     padding: 14px;
 
     border-radius: 4px;
-    border: 2px solid var(--color-gray-10);
+    border: 2px solid var(--color-gray-20);
     background-color: var(--color-white);
 
     color: var(--color-gray-50);
@@ -76,8 +76,9 @@ body {
 
     --color-gray-90: #333;
     --color-gray-50: #666;
-    --color-gray-20: #d9d9d9;
-    --color-gray-10: #DDD;
+    --color-gray-30: #d9d9d9;
+    --color-gray-20: #DDD;
+    --color-gray-10: #EFEFEF;
 
     --color-white: #fff;
 }
@@ -87,21 +88,18 @@ body {
     display: flex;
 }
 
-.article-cover {
+.cover-src {
     width: 50vw;
     height: 100vh;
-    aspect-ratio: 1280 / 1920;
-}
-
-.article-cover-src {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+    aspect-ratio: 1280 / 1920;
+
+    min-width: 0;
 }
 
 .wrapper {
-    display: flex;
-    margin: auto;
+    align-content: center;
+    margin: 0 auto;
 }
 
 .article-contents {
@@ -109,7 +107,7 @@ body {
     padding: 10px;
 }
 
-.article-contents-title {
+.title {
     margin-bottom: 34px;
 
     font-size: 3.2rem;
@@ -150,7 +148,7 @@ body {
     padding: 14px 10px;
 
     border-radius: 4px;
-    border: 2px solid var(--color-gray-10);
+    border: 2px solid var(--color-gray-20);
     background-color: var(--color-white);
 
     display: flex;
@@ -177,7 +175,7 @@ body {
 }
 
 .radio-label::before {
-    border: 3px solid var(--color-gray-20);
+    border: 3px solid var(--color-gray-30);
     border-radius: 50%;
 }
 
@@ -190,6 +188,11 @@ body {
 /* 라디오의 가상요소가 checked 되었을 때 배경 이미지 삽입*/
 .radio-label:has(:checked)::before {
     background-image: url(images/circle.svg);
+}
+
+/* 라디오의 가상요소가 disabled 되었을 때 */
+.radio-label:has(:disabled) {
+    background-color: var(--color-gray-10);
 }
 
 .flex_wrapper {
@@ -205,7 +208,7 @@ body {
 }
 
 .checkbox-label::before {
-    border: 2px solid var(--color-gray-20);
+    border: 2px solid var(--color-gray-30);
     border-radius: 4px;
 }
 
