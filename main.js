@@ -1,5 +1,5 @@
 // 회의실 예약 정보 추가하는 함수(일단 콘솔에 출력)
-const addReservation= () => {
+const addReservation = () => {
     // 1. 선택한 회의실 용도(select)를 출력하는 부분
     const use = document.querySelector('.use option:checked').innerText;
     console.log(`회의 용도: ${use}`);
@@ -25,4 +25,16 @@ const addReservation= () => {
     // 5. 회의 주제(textarea 요소)
     const meetingTopic = document.getElementById('meeting-topic').value;
     console.log(`회의 주제: ${meetingTopic}`);
+}
+
+// 예약 확인하기 버튼 클릭 시 모달 팝업 화면 띄우는 함수
+const confirmReservation = () => {
+    let modalNode = document.querySelector('.modal-wrapper');
+    modalNode.style.display="unset";
+}
+
+// 모달 팝업 화면에서 닫기 버튼 클릭 시 모달 팝업 화면 닫기
+const modalClose = () => {
+    let modalNode = document.querySelector('.modal-wrapper');
+    modalNode.style.display="none";
 }
