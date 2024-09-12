@@ -88,10 +88,24 @@
 
                     <button class="button" type="button" onclick=addReservation()>예약 완료하기</button>
 
-                    <button class="button" type="button">예약 확인하기</button>
+                    <button class="button" type="button" onclick="confirmReservation()">예약 확인하기</button>
                 </form>
             </div>
         </div>
      </article>
+
+    <!-- 모달 팝업 -->
+    <div class="modal-wrapper">
+        <div class="modal">
+            <h2 class="title modal-title">회의실 예약 확인</h2>
+            <ul class="reservation-list">
+                <li>회의 용도: </li>
+                <li>회의 규모: </li>
+                <li>필요 장비: </li>
+                <li>예약자 성함: </li>
+                <li>회의 주제: </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
