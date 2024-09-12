@@ -119,9 +119,16 @@ body {
 .form {
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 20px;
 
     font-size: 1.4rem;
+}
+
+/* 예약 확인하기 버튼 */
+button:last-child{
+    margin-top: -10px;
+    color: var(--color-gray-50);
+    background-color: var(--color-gray-30);
 }
 
 .form-group-label {
