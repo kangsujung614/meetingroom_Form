@@ -251,13 +251,12 @@ button.gray{
     row-gap: 30px;
 
     background-color: var(--color-gray-10);
-    min-width: 500px;
+    min-width: 400px;
     border-radius: 10px;
     padding: 30px;
 }
 
 .modal-title {
-    text-align: center;
     margin-bottom: unset;
 }
 

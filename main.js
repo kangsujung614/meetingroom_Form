@@ -1,12 +1,15 @@
-// 회의실 예약 정보 추가하는 함수(일단 콘솔에 출력)
+// 예약 완료하기 버튼 클릭 시 실행
+// 회의실 예약 정보를 모달 팝업의 요소로 추가하는 함수
 const addReservation = () => {
     // 1. 선택한 회의실 용도(select)를 출력하는 부분
-    const use = document.querySelector('.use option:checked').innerText;
-    console.log(`회의 용도: ${use}`);
+    const selectedUseNode = document.querySelector('.use option:checked').innerText;
+    const printUseNode = document.getElementById('printUse');
+    printUseNode.innerHTML = `<span>회의 용도:</span> ${selectedUseNode}`;
 
     // 2. 선택한 회의(input[type="radio"])의 규모를 출력하는 부분
     const scale = document.querySelector('.scale:checked').parentNode.innerText;
-    console.log(`회의 규모: ${scale}`);
+    const printScaleNode = document.getElementById('printScale');
+    printScaleNode.innerHTML = `<span>회의 규모:</span> ${scale}`;
 
     // 3. 선택한 장비(input[type="checkbox"])를 출력하는 부분 
     const allEquipments = document.querySelectorAll('.equipment'); // 장비 선택을 위한 input 요소들을 모두 선택하여 Nodelist로 할당
@@ -16,15 +19,24 @@ const addReservation = () => {
             checkedEquipments.push(element.parentNode.innerText); // 장비 이름을 출력하기 위해 부모 요소(parentNode)안의 텍스트 값만(innerText) 배열에 추가(push)
         }
     });
-    console.log(`필요 장비: ${checkedEquipments}`);
+    const printEquipmentNode = document.getElementById('printEquipment');
+    printEquipmentNode.innerHTML = `<span>필요 장비:</span> ${checkedEquipments.join(', ')}`;
 
     // 4. 예약자 성함(input[type="text"]) 요소의 현재 값을 가져오는 부분
     const userName = document.getElementById('user-name').value;
-    console.log(`예약자 성함: ${userName}`);
+    const printNameNode = document.getElementById('printName');
+    printNameNode.innerHTML = `<span>예약자 성함:</span> ${userName}`;
 
     // 5. 회의 주제(textarea 요소)
     const meetingTopic = document.getElementById('meeting-topic').value;
-    console.log(`회의 주제: ${meetingTopic}`);
+    const printTopicNode = document.getElementById('printTopic');
+    printTopicNode.innerHTML = `<span>회의 주제:</span> ${meetingTopic}`;
+
+    let spanNode = document.querySelectorAll('span');
+    spanNode.forEach((element) => {
+        element.style.color="#666";
+    })
+    console.log(spanNode);
 }
 
 // 예약 확인하기 버튼 클릭 시 모달 팝업 화면 띄우는 함수
