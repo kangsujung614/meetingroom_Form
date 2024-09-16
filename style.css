@@ -269,3 +269,13 @@ button.gray{
     flex-direction: column;
     row-gap: 6px;
 }
+
+/* 필수 항목: 가상요소로 표시 */
+.essential::after {
+    content: ' *';
+    font-size: 16px;
+    position: absolute;
+    color: red;
+    padding-left: 1.4px;
+    line-height: 1.3;
+}
