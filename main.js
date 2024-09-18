@@ -1,5 +1,8 @@
+let validation = true; // 검증 상태
+
 // 예약 완료하기 버튼 클릭 시 실행(회의실 예약 정보를 모달 팝업의 요소로 추가하는 함수)
 const addReservation = () => {
+    validation = true; // 리셋
     controlUse();
     controlScale();
     controlEquipment();
@@ -9,8 +12,12 @@ const addReservation = () => {
 
 // 예약 확인하기 버튼 클릭 시 모달 팝업 화면 띄우는 함수
 const confirmReservation = () => {
-    let modalNode = document.querySelector('.modal-wrapper');
-    modalNode.style.display="unset";
+    if(validation === true){
+        let modalNode = document.querySelector('.modal-wrapper');
+        modalNode.style.display="unset";
+    } else {
+        alert("예약이 정상적으로 이루어지지 않았거나 예약 내역이 없습니다.");
+    }
 }
 
 // 모달 팝업 화면에서 닫기 버튼 클릭 시 모달 팝업 화면 닫기
@@ -23,7 +30,8 @@ const modalClose = () => {
 function controlUse() {
     const defaultValue = document.querySelector('.use option:checked').value;
     if(defaultValue === "default"){
-
+        alert("어떤 용도로 이용할 예정이신지 선택해주세요.");
+        validation = false;
     } else {
         // 선택한 회의실 용도(select)를 출력하는 부분
         const selectedUseNode = document.querySelector('.use option:checked').innerText;
@@ -36,7 +44,8 @@ function controlUse() {
 function controlScale() {
     const scale = document.querySelector('.scale:checked');
     if(scale === null){
-        
+        alert("회의의 규모를 선택해주세요.");
+        validation = false;
     } else { // 선택한 회의(input[type="radio"])의 규모를 출력하는 부분
         const printScaleNode = document.getElementById('printScale');
         printScaleNode.innerText = `회의 규모: ${scale.parentNode.innerText}`;
@@ -71,9 +80,11 @@ function controlUserName() {
 
     userName = userName.trim(); // 앞, 뒤 공백 제거
     if(userName === ''){ // 미입력 시
-
+        alert("예약자의 성함을 입력해주세요.");
+        validation = false;
     } else if(regExp.test(userName)){
-
+        alert("성함은 알파벳, 한글로만 입력해주세요.");
+        validation = false;
     } else {
         // 예약자 성함(input[type="text"]) 요소의 현재 값을 출력하는 부분
         const printNameNode = document.getElementById('printName');
@@ -87,7 +98,8 @@ function controlTopic() {
     let meetingTopic = document.getElementById('meeting-topic').value;
     meetingTopic = meetingTopic.trim();
     if(meetingTopic === ''){
-
+        alert("회의의 주제를 입력해주세요.");
+        validation = false;
     } else {
         const printTopicNode = document.getElementById('printTopic');
         printTopicNode.innerText = `회의 주제: ${meetingTopic}`;
